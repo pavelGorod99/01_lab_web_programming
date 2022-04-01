@@ -41,6 +41,7 @@
     Flight::route("DELETE /delete_from_table_by_id/@table/@id", function($table, $id) {
         Flight::json(Flight::todoDao()->delete_from_table_by_id($table, $id));
     });
+    
 
     Flight::route("PUT /update_book/@id/@title/@id_publishing_house/@id_author/@year/@nr_pages/@price/@image_path", function($id, $title, $id_publishing_house, $id_author, $year, $nr_pages, $price, $image_path) {
         
@@ -85,3 +86,4 @@
 
     
 ?>
+
