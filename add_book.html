@@ -5,118 +5,51 @@
         <meta charset="utf=8">
         <title>App Title</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/add_booc.css" rel="stylesheet">
         <script href="js/jquery-3.6.0.min.js"></script>
         <script href="js/bootstrap.bundle.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/get_data_table.js"></script>
-        <script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="js/add_book.js" type="text/javascript"></script>
 
-            function addNewItem() {
-
-                let $_URL = '/add_book/' +  document.getElementById('book_name').value + "/" + 
-                                            document.getElementById('book_publish_house').value + "/" +
-                                            document.getElementById('book_author').value + "/" +
-                                            document.getElementById('book_year').value + "/" +
-                                            document.getElementById('book_nr_of_pages').value + "/" +
-                                            document.getElementById('book_price').value
-
-                $.ajax({
-                    url: $_URL,
-                    type: 'POST',
-                    success: function () {
-                    }, error: function (err) {
-                        console.log('error: ' + err)
-                    }
-                })
-            }
-
-            function getData() {
-
-                getItems('publishing_house').then(function(ph) {
-
-                    $_form_content =    "<div>Book name</div>" +
-                                        "<input type='text' style='width: 90%' id='book_name'>" +
-                                        "<div>Publishing house</div>" +
-                                        "<select style='width: 90%' id='book_publish_house'>";
-                        
-                    $_ph_options = "";
-
-                    for (let i = 0; i < ph.length; i++)
-                        $_ph_options += "<option value=" + ph[i]['Id_publishing_house'] + ">" + ph[i]['Name'] + "</option>";
-
-                    $_ph_options += "</select>";
-
-                    $_form_content += $_ph_options;
-
-                    getItems('author').then(function(author) {
-
-                        $_authors = "<div>Author</div>" + 
-                                    "<select style='width: 90%' id='book_author'>";
-                                    
-                        for (let i = 0; i < author.length; i++)
-                            $_authors += "<option value=" + author[i]['Id_Author'] + ">" + author[i]['Name'] + "</option>"
-
-                        $_authors += "</select>"
-
-                        $_form_content += $_authors
-
-                        let $_year_option = "<div>Year</div>" + 
-                                            "<select style='width: 90%' id='book_year'>";
-
-                        for (let i = new Date().getFullYear(); i >= 1950; i--)
-                            $_year_option += "<option value=" + i + ">" + i + "</option>"
-                            
-                        $_year_option += "</select>"
-
-
-
-                        $_form_content += $_year_option +   "<div>Number of pages</div>" + 
-                                                            "<input type='number' style='width: 90%' id='book_nr_of_pages'>" +
-                                                            "<div>Price</div>" +
-                                                            "<input type='number' style='width: 90%' id='book_price'>" +
-                                                            "<button style='width: 90%; margin-top: 25px' onclick='addNewItem()'>Add new book</button>"
-
-                        document.getElementById('new_book_form').innerHTML = '<form id="new_book_form" method="post" style="width: 600px; display: flex; flex-direction: column; align-items: center;"></form>'
-                        $("#new_book_form").append($_form_content);
-                    })
-                })
-            }
-
-            $( document ).ready(function() {
-                getData()
-            });
-        </script>
-        
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-        </style>
     </head>
 
     <body>
-        <ul style="list-style-type: none;">
+        <ul>
             <li><a href="index.html">Show Books</a></li>
             <li><a href="#">Add Books</a></li>
         </ul>
-        <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="display: flex; justify-content: center;">
+        <div id="forum_container">
+            <div id="forum_title">
                 <h1>Add a new book</h1>
             </div>
-            <form id="new_book_form" method="post" style="width: 600px; display: flex; flex-direction: column; align-items: center;">
+            <form id="new_book_form">
+                <div>Book name</div>
+                <input type="text" class='inputs' id="bookNameInput" name="book_name">
+                <div id="messageBox1" class="err_"></div>
+                <div>Publish house</div>
+                <select class='inputs' id='bookPublishHouse' name='book_publish_house'>
+                    <option disabled selected>Select publish house</option>
+                </select>
+                <div id="messageBox2" class="err_"></div>
+                <div>Author</div>
+                <select class='inputs' id='bookAuthorInput' name='book_author'>
+                    <option disabled selected>Select author</option>
+                </select>
+                <div id="messageBox3" class="err_"></div>
+                <div>Year</div>
+                <select class='inputs' id='bookYearInput' name='book_year'>
+                    <option disabled selected>Select year</option>
+                </select>
+                <div id="messageBox4" class="err_"></div>
+                <div>Number of pages</div>
+                <input type='number' class='inputs' id='bookNrOfPages' name='book_nr_of_pages'>
+                <div id="messageBox5" class="err_"></div>
+                <div>Price</div>
+                <input type='number' class='inputs' id='bookPrice' name='book_price'>
+                <div id="messageBox6" class="err_"></div>
+                <input type="submit" id="bookAddSubmit">
             </form>
-        </div>
     </body>
 </html>

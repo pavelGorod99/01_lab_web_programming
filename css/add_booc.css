@@ -1,0 +1,57 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#forum_container {
+
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#forum_title {
+
+    display: flex; 
+    justify-content: center;
+}
+
+#new_book_form {
+
+    width: 600px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+#forum_btn_submit {
+
+    width: 90%; 
+    margin-top: 25px
+}
+
+.inputs {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.err_ {
+    color: red;
+}
