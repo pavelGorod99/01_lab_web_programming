@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf=8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Title</title>
+        <!-- <link href="../css/index.css" rel="stylesheet"> -->
+        <!-- <link href="../css/style.css" rel="stylesheet"> -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="../js/login.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+        <link href="../css/errorForm.css" rel="stylesheet">
+        <link href="../css/style_bs.css" rel="stylesheet">
+
+    </head>
+
+    <body class="d-flex flex-column justify-content-between vh-100">
+        
+        <div class="container-fluid p-0">
+            <div class="d-flex flex-column">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-0 pt-3 pb-3" style="background-color: #063547!important; min-height: 72px!important;">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="../index.html" style="color: white;">
+                            <h3 class="mb-0" style="font-family: 'Mulish', sans-serif;">
+                              Book store
+                            </h3>
+                          </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center mt-5" style="margin: auto!important">
+                <form class="col-11 col-sm-11 col-md-6 col-lg-4 mt-5 loginForm" id="login_form">
+                    <div class="form-group mb-3">
+                        <label for="exampleInputUsername">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail" name="email" placeholder="User email">
+                        <div id="messBox1" class="err_ errInput"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pass" placeholder="Password">
+                        <div id="messBox2" class="err_ errInput"></div>
+                    </div>
+                    <div class="form-check mt-2 mb-2">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me">
+                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    </div>
+                    <div id="messB" class="err_ errInput mb-4"></div>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="h-100 d-flex flex-column justify-content-end">
+            <footer class="w-100 d-flex justify-content-center mb-4 text-center ps-2 pe-2">
+                Copyright 2022 by IBU. All Rights Reserved. Book Store
+            </footer>
+        </div>
+
+    </body>
+</html>

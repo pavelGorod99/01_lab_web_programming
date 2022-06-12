@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bootstrap-icons": "^1.8.2",
+    "form-data": "^4.0.0"
+  }
+}

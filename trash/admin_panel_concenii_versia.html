@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf=8">
+        <title>App Title</title>
+<!-- £££££££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+        <!-- <link href="css/index.css" rel="stylesheet"> -->
+        <script href="js/jquery-3.6.0.min.js"></script>
+        <!-- <script href="js/bootstrap.bundle.min.js"></script> -->
+        <script type="text/javascript" src="js/get_data_table.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/itemService.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+        <!-- £££££££££££££££££££££££££££££££££££££££££££££££££££ -->
+        <!-- <link href="css/admin_panel.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- End layout styles -->
+        <link rel="shortcut icon" href="assets/images/favicon.png" />
+
+        <link rel="stylesheet" href="css/modal.css">
+
+        <script> 
+          $(function(){
+            $("#main_content_part").load("./ad_content.html"); 
+          });
+
+          // $(document).ready(function() {
+          //   $("#main_content_part").load("./ad_content.html"); 
+          // });
+        </script>
+
+    </head>
+
+    <body style="display: flex; height: 100vh;">
+
+        <!-- Modal -->
+        <!-- FOR MOBILE -->
+        <!-- <div class="m-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">Brand</a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="#" class="nav-item nav-link active">Home</a>
+                            <a href="#" class="nav-item nav-link">Profile</a>
+                            <a href="#" class="nav-item nav-link">Messages</a>
+                            <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                        </div>
+                        <div class="navbar-nav ms-auto">
+                            <a href="#" class="nav-item nav-link">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div> -->
+
+        <!-- FOR PC -->
+        <!-- <div class="p-3" style="width: 15%; background-color: #212529; display: flex; flex-direction: column; justify-content: space-between; color: white;">
+            <div>
+                <div style="width: 100%; display: flex; justify-content: start; border-bottom: 1px solid white; padding-bottom: 10px;">
+                    <span class="fs-4">Admin panel</span>
+                </div>
+                <nav style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <ul class="navbar-nav" style="padding-left: 0%!important;">
+                        <li>
+                            <a href="admin_panel.html" style="color: white; background-color: #0d6efd; padding: 0.5rem 1rem; border-radius: 0.25rem; display: block; text-decoration: none!important;">
+                            <i class="bi bi-book"></i>
+                                Books
+                            </a>
+                        </li>
+                        <li>
+                            <a href="add_book.html" style="color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; display: block; text-decoration: none!important;">
+                            <i class="bi bi-journal-plus"></i>
+                                Add books
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; display: block; text-decoration: none!important;">
+                            <i class="bi bi-people"></i>
+                                Users
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </nav>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <ul style="padding-left: 0%!important; border-top: 1px solid white; padding-top: 15px;">
+                    <li>
+                        <a href="#" style="color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; display: block; text-decoration: none!important;">
+                            Log out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="display: flex!important; flex-direction:column!important; justify-content: space-between!important">
+            <div>
+                <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top flex-column">
+                    <a class="sidebar-brand brand-logo" href="admin_panel.html" style="color: #6c7293!important; text-decoration: none!important;">Admin</a>
+                    <a class="sidebar-brand brand-logo-mini" href="admin_panel.html" style="color: #6c7293!important; text-decoration: none!important;">A</a>
+                    <div style="width: 90%; border-bottom: 1px solid white!important"></div>
+                </div>
+      
+                <ul class="nav">
+    
+                    <li class="nav-item nav-category">
+                        <span class="nav-link">Navigation</span>
+                    </li>
+            
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="admin_panel.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-book"></i>
+                        </span>
+                        <span class="menu-title" style="font-size: 1.25rem!important">Books</span>
+                        </a>
+                    </li>
+            
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" data-toggle="collapse" href="add_book.html" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-book-plus"></i>
+                        </span>
+                        <span class="menu-title" style="font-size: 1.25rem!important">Add book</span>
+                        </a>
+                    </li>
+            
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="users.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account-group"></i>
+                        </span>
+                        <span class="menu-title" style="font-size: 1.25rem!important">Users</span>
+                        </a>
+                    </li>
+                
+                </ul>
+            </div>
+            <div>
+                <ul class="nav">
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" href="#">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-book"></i>
+                        </span>
+                        <span class="menu-title" style="font-size: 1.25rem!important">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+          </nav>
+
+          <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row" style="background-color: #cfcfcf!important;">
+              <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center" style="background-color: #cfcfcf!important">
+                <a class="navbar-brand brand-logo-mini" href="admin_panel.html" style="font-size: 2rem!important">
+                    <!-- <img src="assets/images/logo-mini.svg" alt="logo" /> -->
+                    Admin panel
+                </a>
+              </div>
+              <!-- <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch justify-content-between"> -->
+              <div class="navbar-menu-wrapper d-flex justify-content-between" style="padding: 0!important; box-shadow: none!important; -webkit-box-shadow: none!important;">
+
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="width: 75px!important; font-size: 2rem!important">
+                  <span class="mdi mdi-menu"></span>
+                </button>
+                
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas" style="width: 75px!important; font-size: 2.5rem!important">
+                  <span class="mdi mdi-format-line-spacing"></span>
+                </button>
+
+              </div>
+            </nav>
+
+
+            <div  id="main_content_part" style="width: 100%!important">
+            
+            </div>
+            <!-- <div class="main-panel">
+              <div class="content-wrapper" style="background-color: whitesmoke">
+
+
+                <div class="row">
+                  <div class="col-12 grid-margin stretch-card">
+                    <table class="table table-hover table-light align-middle" id="book_table">
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+
+              <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                  <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                </div>
+              </footer>
+            </div>
+          </div> -->
+
+
+        <!-- <div class="table-responsive" style="width: 85%;">
+
+            <div class="w-50" style="display: flex; margin-top: 25px; margin-bottom: 25px; margin-left: 25px;">
+                <input class="form-control mr-sm-2" style="margin-right: 30px" type="search" placeholder="Search" aria-label="Search" id="searchBookByTitle">
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="seacrhForABook(0)">Search</button>
+            </div> 
+
+            <table class="table table-hover table-light align-middle" id="book_table">
+            </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination" id="pagination">
+
+                </ul>
+            </nav>
+
+            <footer>
+                <div style="margin-left: calc(55% / 2);">
+                    Copyright 2022 by IBU. All Rights Reserved. Book Store
+                </div>
+            </footer>
+        </div> -->
+
+        <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+        <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+        <script src="assets/js/dashboard.js"></script>
+        <script src="assets/js/off-canvas.js"></script>
+        <script src="assets/js/hoverable-collapse.js"></script>
+        <script src="assets/js/misc.js"></script>
+    </body>
+</html>

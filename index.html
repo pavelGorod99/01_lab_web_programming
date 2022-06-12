@@ -3,37 +3,259 @@
 
     <head>
         <meta charset="utf=8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>App Title</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/index.css" rel="stylesheet">
-        <script href="js/jquery-3.6.0.min.js"></script>
-        <script href="js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="js/get_data_table.js"></script>
+        <link href="./css/index.css" rel="stylesheet">
+        <script href="./js/jquery-3.6.0.min.js"></script>
+        <!-- <script type="text/javascript" src="js/get_data_table.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="js/itemService.js"></script>
-    </head>
+        <!-- <script src="js/itemService.js"></script> -->
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <script href="./js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+        <link href="./css/font-awesome-bc.min.css" rel="stylesheet">
+        <link href="./css/style_bs.css" rel="stylesheet">
+
+        <!-- <script src="./js/custom.js"></script> -->
+
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"> -->
+        </script>
+    
+      </head>
 
     <body>
-        <ul>
-            <li><a href="#">Show Books</a></li>
-            <li><a href="add_book.html">Add Books</a></li>
-            <li>
-                <div>
-                    <input type="checkbox" id="new_book" name="new_book" onchange="insertDataIntoTable()">
-                    <label for="new_book">If you check it you can add a new book from the end of the table</label>
+        <div id="container-fluid">
+            <div class="d-flex flex-column">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light mt-0 pt-3 pb-3" style="background-color: #063547!important">
+                        <div class="container-fluid">
+                          <a class="navbar-brand" href="#" style="color: white;">
+                            <!-- <img src="img/Bookstore logo.png" height="55" width="155"> -->
+                            <h3 class="mb-0">
+                              Book store
+                            </h3>
+                          </a>
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                              <li class="nav-item me-2">
+                                <a class="nav-link active" aria-current="page" href="#" style="color: white">Home</a>
+                              </li>
+                              <li class="nav-item me-2">
+                                <a class="nav-link" href="views/categories.html" style="color: white">Categories</a>
+                              </li>
+                              <li class="nav-item me-2">
+                                <a class="nav-link" href="#" style="color: white">About us</a>
+                              </li>
+                              <li class="nav-item me-2">
+                                <a class="nav-link" href="views/login.html" style="color: white">Log in</a>
+                              </li>
+                              <li class="nav-item me-2">
+                                <a class="nav-link" href="views/registration.html" style="color: white">Registration</a>
+                              </li>
+                            </ul>
+                            <form class="d-flex">
+                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                          </div>
+                        </div>
+                    </nav>
                 </div>
-            </li>
-        </ul>
-        <table id="book_table">
-            <tr>
-                <th>Title</th>
-                <th>Publishing house</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>Nr of pages</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </table>
+                
+            </div>
+        </div>
+        
+        <section class="slider_section ">
+          <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container ">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="detail-box">
+                        <h5>
+                          Book store
+                        </h5>
+                        <h1>
+                          For All Your <br>
+                          Reading Needs
+                        </h1>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
+                        </p>
+                        <a href="">
+                          Read More
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="img-box">
+                        <img src="img/slider-img.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="catagory_section layout_padding">
+          <div class="catagory_container">
+            <div class="container ">
+              <div class="heading_container heading_center">
+                <h2>
+                  Books Categories
+                </h2>
+                <p>
+                  There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat1.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        Textbooks
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat2.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        Science
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat3.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        History
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat4.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        Biography
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat5.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        Adventure
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 ">
+                  <div class="box ">
+                    <div class="img-box">
+                      <img src="img/cat6.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        Fantasy
+                      </h5>
+                      <p>
+                        fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                        The
+                        point of using
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about_section layout_padding">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="img-box">
+                  <img src="img/about-img.png" alt="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="detail-box">
+                  <div class="heading_container">
+                    <h2>
+                      About Our Bookstore
+                    </h2>
+                  </div>
+                  <p>
+                    At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae. Consequuntur obcaecati recusandae aliquam, amet doloribus eius dolores officiis cumque? Quibusdam praesentium pariatur sapiente mollitia, amet hic iusto voluptas! Iusto quo earum vitae excepturi, ipsam aliquid deleniti assumenda culpa deserunt.
+                  </p>
+                  <a href="">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <div class="h-100 d-flex flex-column justify-content-end" style="background-color:#dddddd;">
+          <footer class="w-100 d-flex justify-content-center mb-4 text-center ps-2 pe-2 h-auto">
+              Copyright 2022 by IBU. All Rights Reserved. Book Store
+          </footer>
+        </div>
     </body>
 </html>

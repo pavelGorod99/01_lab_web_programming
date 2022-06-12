@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Dashboard Template · Bootstrap v5.0</title>
+    
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../js/get_data_table.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <script src="../js/add_book.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+    <link href="../css/admin_panel.css" rel="stylesheet">  
+
+    <link href="../css/errorForm.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="../css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Admin panel</a>
+        
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="form-control-dark w-100 h-auto"></div>
+
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+            <a class="nav-link px-3" href="./login.html">Log out</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 h-100">
+            <ul class="nav flex-column justify-content-between h-100">
+            <div class="d-flex flex-column w-100">
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./admin_panel.html">
+                    <i class="bi bi-book"></i>
+                    Books
+                </a>
+                </li>
+    
+                <li class="nav-item">
+                <a class="nav-link active" href="./add_book.html">
+                    <i class="bi bi-journal-plus"></i>
+                    Add books
+                </a>
+                </li>
+    
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-people"></i>
+                    Users
+                </a>
+                </li>
+            </div>
+            <div class="mb-4 w-100">
+                <li class="nav-item">
+                <a class="nav-link" href="./login.html">
+                    <i class="bi bi-box-arrow-left"></i>
+                    Log out
+                </a>
+                </li>
+            </div>
+
+            </ul>
+        </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 px-sm-0">
+            <div class="row justify-content-center">
+
+                <h1 class="w-100 d-flex justify-content-center mt-3">Add book</h1>
+                
+                <form class="col-md-9 col-lg-7 mb-3" id="new_book_form">
+                    <div class="mb-1">
+                        <label for="bookNameInput" class="form-label">Book name</label>
+                        <input type="text" class="form-control" id="bookNameInput" name="book_name">
+                        <div id="messageBox1" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="bookPublishHouse" class="form-label">Publish house</label>
+                        <select class="form-select" id="bookPublishHouse" name='book_publish_house'>
+                            <option disabled selected>Select publish house</option>
+                        </select>
+                        <div id="messageBox2" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="bookAuthorInput" class="form-label">Author</label>
+                        <select class="form-select" id='bookAuthorInput' name='book_author'>
+                            <option disabled selected>Select author</option>
+                        </select>
+                        <div id="messageBox3" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="bookYearInput" class="form-label">Year</label>
+                        <select class="form-select" id='bookYearInput' name='book_year'>
+                            <option disabled selected>Select year</option>
+                        </select>
+                        <div id="messageBox4" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-1">
+                        <label for="bookNrOfPages" class="form-label">Number of pages</label>
+                        <input type="number" class="form-control" id='bookNrOfPages' name='book_nr_of_pages'>
+                        <div id="messageBox5" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bookPrice" class="form-label">Price</label>
+                        <input type="number" class="form-control" id='bookPrice' name='book_price'>
+                        <div id="messageBox6" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bookDescriptionInput" class="form-label">Book description</label>
+                        <input type="text" class="form-control" id="bookDescriptionInput" name="book_description">
+                        <div id="messageBox8" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bookCategoryInput" class="form-label">Book category</label>
+                        <select class="form-select" id='bookCategoryInput' name='book_category'>
+                            <option disabled selected>Select category</option>
+                        </select>
+                        <div id="messageBox9" class="err_ errInput"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="bookImage" class="form-label">Choose book image</label>
+                        <input class="form-control" type="file" id="bookImage" name="book_image" multiple>
+                        <div id="messageBox7" class="err_ errInput"></div>
+                    </div>
+                      
+                    <button type="submit" class="btn btn-primary w-100">Add a book</button>
+                </form>
+            </div>
+                
+                <div class='position-fixed top-0 end-0 bg-success' style='z-index: 99999'>
+                    <div id='liveToast1' class='toast' role='alert' aria-live='assertive' aria-atomic='true'>
+                        <div class="toast-header d-flex justify-content-end">
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class='toast-body' id="toastText">
+                            New book was added successfully
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-100 mb-4">
+                    <footer class="w-100 d-flex justify-content-center">
+                        <div>
+                            Copyright 2022 by IBU. All Rights Reserved. Book Store
+                        </div>
+                    </footer>
+                </div>
+        </main>
+    </div>
+    </div>
+
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="./js/dashboard.js"></script>
+  </body>
+</html>

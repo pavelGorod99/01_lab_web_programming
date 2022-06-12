@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf=8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Title</title>
+        <link href="../css/index.css" rel="stylesheet">
+        <link href="../css/books.css" rel="stylesheet">
+
+        <script href="../js/jquery-3.6.0.min.js"></script>
+        <!-- <script type="text/javascript" src="js/get_data_table.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- <script src="../js/itemService.js"></script> -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+        <!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
+        
+
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <script href="../js/bootstrap.bundle.min.js"></script>
+
+        <link href="../css/style_bs.css" rel="stylesheet">
+
+        <link href="../css/orders.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    
+    </head>
+
+    <body class="d-flex flex-column vh-100">
+        <div>
+            <div id="container-fluid">
+                <div class="d-flex flex-column">
+                    <div class="col">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-0 pt-3 pb-3" style="background-color: #063547!important">
+                            <div class="container-fluid">
+                              <a class="navbar-brand" href="./user_home.html" style="color: white;">
+                                <h3 class="mb-0">
+                                  Book store
+                                </h3>
+                              </a>
+                              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                              <div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                  <li class="nav-item me-2">
+                                    <a class="nav-link active" aria-current="page" href="./user_home.html" style="color: white">Home</a>
+                                  </li>
+                                  <li class="nav-item me-2">
+                                    <a class="nav-link" href="./books.html" style="color: white">Books</a>
+                                  </li>
+                                  <li class="nav-item me-2">
+                                    <a class="nav-link" href="./my_orders.html" style="color: white">My orders</a>
+                                  </li>
+                                  <li class="nav-item me-2">
+                                    <a class="nav-link" href="./user.html" style="color: white" id="welcome_user">User</a>
+                                  </li>
+                                  <li class="nav-item me-2">
+                                    <a class="nav-link" href="./login.html" style="color: white">Log out</a>
+                                  </li>
+                                </ul>
+                                <form class="d-flex">
+                                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                  <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                              </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row justify-content-center" style="margin-left: auto!important; margin-right: auto!important;">
+    
+                <section class="slider_section ">
+                    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <div class="container ">
+                            <div class="row justify-content-center">
+    
+                                <div class="col-12 col-sm-12 col-md-12">
+                                    <div id="user_label" class="w-75 mb-2">
+                                        <span>Username</span> orders
+                                    </div>
+                                </div>
+    
+                                <div class="col-12 col-sm-12 col-md-12">
+                                    <div class="w-100 d-flex flex-column justify-content-center">
+                                        <table  class="order_table">
+                                            <tr>
+                                                <th style="width: 50%; border-radius: 10px 0px 0px 0px;" class="ps-3">
+                                                    Order
+                                                </th>
+                                                <th class="col-custom-o">
+                                                    Time order
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                                <th style="border-radius: 0px 10px 0px 0px;">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    Delivered
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning" disabled>
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    In progress
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    In progress
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    Delivered
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning" disabled>
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    Delivered
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning" disabled>
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    In progress
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-3">
+                                                    SF9W9
+                                                </td>
+                                                <td class="col-custom-o">
+                                                    15/04/2022
+                                                </td>
+                                                <td class="al_left">
+                                                    In progress
+                                                </td>
+                                                <td class="d-flex justify-content-center">
+                                                    <button type="button" class="btn btn-warning">
+                                                        <i class="bi bi-x-lg"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div> 
+    
+                                <div class="w-100 d-flex justify-content-center">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                
+                                            </a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+            
+            </div>
+        </div>
+        
+        
+        <div class="d-flex flex-column justify-content-end" style="background-color:#dddddd;">
+          <footer class="w-100 d-flex justify-content-center mb-4 text-center ps-2 pe-2 h-auto">
+              Copyright 2022 by IBU. All Rights Reserved. Book Store
+          </footer>
+        </div>
+    </body>
+</html>
+
+
+
+<!-- <div id="orders_container">
+
+    <div id="user_label">
+        Username
+    </div>
+    <div id="orders_list">
+        
+        <div style="width: 100%; background-color: rgba(255, 255, 255, .9); padding: 0px 15px 15px 15px; border-radius: 5px; box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);">
+            <table id="order_table">
+                <tr style="border-bottom: 1px solid black">
+                    <th style="width: 50%">
+                        #Order
+                    </th>
+                    <th>
+                        #Time order
+                    </th>
+                    <th class="al_left">
+                        #Status
+                    </th>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+                <tr style="border-bottom: .5px solid black">
+                    <td>
+                        #SF9W97E
+                    </td>
+                    <td>
+                        15/04/2022
+                    </td>
+                    <td class="al_left">
+                        Delivered
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+</div> -->

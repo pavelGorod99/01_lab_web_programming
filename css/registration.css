@@ -1,0 +1,13 @@
+#reg_label {
+    font-size: 200%;
+    margin-top: 15px;
+    /* margin-bottom: 10px; */
+}
+
+#reg_btn {
+    opacity: 1.0!important
+}
+
+.form_container {
+    margin-top: 15px!important;
+}

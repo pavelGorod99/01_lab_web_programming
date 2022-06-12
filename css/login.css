@@ -1,0 +1,31 @@
+#login {
+    margin-top: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 30%!important;
+    background-color: white;
+    padding: 14px;
+    border-radius: 5px;
+    opacity: 0.8;
+    height: 270px;
+}
+
+.form-group {
+    margin-top: 15px
+}
+
+.form-check {
+    margin-top: 15px
+}
+
+button {
+    margin-bottom: 15px!important;
+}
+
+#bookstore_logo {
+    margin-right: 20px;
+}

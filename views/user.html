@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf=8">
+        <title>App Title</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/index.css" rel="stylesheet">
+        <script href="../js/jquery-3.6.0.min.js"></script>
+        <script href="../js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/get_data_table.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/itemService.js"></script>
+    </head>
+
+    <body>
+        <div id="container">
+            <div style="width: 100%">
+                <nav>
+                    <a href="./user_home.html">
+                        <img src="../img/Bookstore logo.png" height="110" width="310">
+                    </a>
+                    <ul class="nav_store_menu">
+                        <li><a href="./user_home.html">Home</a></li>
+                        <li><a href="./books.html">Books</a></li>
+                        <li><a href="./my_orders.html">My orders</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="./user.html" style="color: #0d6efd;">User</a></li>
+                        <li><a href="./login.html">Log out</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div id="user_container" style="width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 50px">
+                <div style="width: 40%; border-bottom: 1px solid black; font-size: 130%">
+                    User details
+                </div>
+                <div style="width: 40%; margin-top: 20px;">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputUsername">Username</label>
+                          <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Your username">
+                        </div>
+                        <div class="form-group" style="margin-top: 20px">
+                          <label for="exampleInputLastPassword1">Last password</label>
+                          <input type="password" class="form-control" id="exampleInputLastPassword1" placeholder="Last password">
+                        </div>
+                        <div class="form-group" style="margin-top: 20px">
+                            <label for="exampleInputNewPassword1">New password</label>
+                            <input type="password" class="form-control" id="exampleInputNewPassword1" placeholder="New password">
+                          </div>
+                        <button type="button" class="btn btn-primary" style="margin-top: 20px; width: 100%">Save changes</button>
+                      </form>
+                </div>
+            </div>
+            
+        </div>
+        <footer>
+            Copyright 2022 by IBU. All Rights Reserved. Book Store
+        </footer>
+    </body>
+</html>

@@ -58,15 +58,15 @@ function getData() {
 
             $_form_content += $_authors
 
-            let $_year_option = "<div>Year</div>" + 
+            let $yearOption = "<div>Year</div>" + 
                                 "<select class='inputs' id='book_year' name='book_year'>";
 
             for (let i = new Date().getFullYear(); i >= 1950; i--)
-                $_year_option += "<option value=" + i + ">" + i + "</option>"
+                $yearOption += "<option value=" + i + ">" + i + "</option>"
                 
-            $_year_option += "</select>"
+            $yearOption += "</select>"
 
-            $_form_content += $_year_option +   "<div>Number of pages</div>" + 
+            $_form_content += $yearOption +   "<div>Number of pages</div>" + 
                                                 "<input type='number' class='inputs' id='book_nr_of_pages' name='book_nr_of_pages'>" +
                                                 "<div>Price</div>" +
                                                 "<input type='number' class='inputs' id='book_price' name='book_price'>" +
