@@ -44,7 +44,7 @@ function registration() {
             var fd = new FormData($form);
 
             $.ajax({
-                url: "/01_lab_web_programming/rest/registration",
+                url: "/Book_store/rest/registration",
                 type: 'POST',
                 data: fd,
                 success: function (response) {

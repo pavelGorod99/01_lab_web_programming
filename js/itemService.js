@@ -12,7 +12,7 @@ var bookEditImagePath = ''
 
 // function addNewItem () {
 
-//     let $_URL = '/01_lab_web_programming/add_book/' +  document.getElementById('title_new_book').value + "/" +
+//     let $_URL = '/Book_store/add_book/' +  document.getElementById('title_new_book').value + "/" +
 //                                 document.getElementById('nb_publish_house').value + "/" +
 //                                 document.getElementById('nb_authors').value + "/" +
 //                                 document.getElementById('nb_year').value + "/" +
@@ -43,7 +43,7 @@ function editItem($idBook) {
     }
 
     $.ajax({
-        url: "/01_lab_web_programming/rest/update_book",
+        url: "/Book_store/rest/update_book",
         type: "POST",
         data:  fd,
         success: function (result) {
@@ -65,7 +65,7 @@ function editItem($idBook) {
 function deleteBook ($bookId) {
 
     $.ajax({
-        url: "/01_lab_web_programming/rest/delete_from_table_by_id/book/" + $bookId,
+        url: "/Book_store/rest/delete_from_table_by_id/book/" + $bookId,
         type: "DELETE",
         success: function (result) {
             console.log(result);
@@ -227,11 +227,11 @@ function insertIntoTable(ph, author, category, result) {
 
         $delete_option = "DELETE";
 
-        // $url1 = "/01_lab_web_programming/delete_from_table_by_id/book/" + result[i]['id_book'];
+        // $url1 = "/Book_store/delete_from_table_by_id/book/" + result[i]['id_book'];
 
         $edit_option = "PUT";
 
-        // $url2 = "/01_lab_web_programming/update_book/" + result[i]['id_book']
+        // $url2 = "/Book_store/update_book/" + result[i]['id_book']
 
         $idBookImage = 'bookInputImage' + result[i]['id_book']
 
@@ -599,7 +599,7 @@ function ModalHtml($idBook, $idModal, $title, $html, $imageID, $imagePath, $book
 
         $edit_option = "PUT";
 
-        // $url2 = "/01_lab_web_programming/update_book/" + $idBook
+        // $url2 = "/Book_store/update_book/" + $idBook
 
         $operation = "<button type='button' class='btn btn-success w-100' data-bs-dismiss='modal' onclick='editItem(\"" + $idBook + "\")'>Update</button>"
     } else {

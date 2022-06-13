@@ -66,7 +66,7 @@
             <ul class="nav flex-column justify-content-between h-100">
                 <div class="w-100 d-flex flex-column">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./admin_panel.html">
+                    <a class="nav-link" href="./admin_panel.html">
                         <i class="bi bi-book"></i>
                         Books
                     </a>
@@ -80,7 +80,7 @@
                     </li>
         
                     <li class="nav-item">
-                    <a class="nav-link" href="./admin_panel_users.html">
+                    <a class="nav-link active" aria-current="page" href="./admin_panel_users.html">
                         <i class="bi bi-people"></i>
                         Users
                     </a>
@@ -111,26 +111,87 @@
             <div class="table-responsive d-flex flex-column justify-content-between" style="width: 100%;">
 
                 <div class="w-100">
-                    <table class="table table-hover table-light align-middle mt-4" id="book_table">
-                    </table>
-            
+                    <!-- <table class="table table-hover table-light align-middle mt-4" id="book_table">
+                    </table> -->
+
+                    <table class="table  table-hover table-light align-middle mt-4">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mark@mdo.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>jacob@fat.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry the Bird</td>
+                            <td>Thornton</td>
+                            <td>larry@twitter.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mark@mdo.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>jacob@fat.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">6</th>
+                            <td>Larry the Bird</td>
+                            <td>Thornton</td>
+                            <td>larry@twitter.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">7</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>mark@mdo.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">8</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>jacob@fat.com</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">9</th>
+                            <td>Larry the Bird</td>
+                            <td>Thornton</td>
+                            <td>larry@twitter.com</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
                     <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                        <ul class="pagination" id="pagination">
-            
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                     </nav>
                 </div>
 
-                <div class='position-fixed top-0 end-0 bg-success' style='z-index: 99999'>
-                    <div id='liveToast1' class='toast' role='alert' aria-live='assertive' aria-atomic='true'>
-                        <div class="toast-header d-flex justify-content-end">
-                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                        <div class='toast-body' id="toastText">
-                            The record was updated successfully
-                        </div>
-                    </div>
-                </div>
 
                 <div class="w-100">
                     <footer class="w-100 d-flex justify-content-center">

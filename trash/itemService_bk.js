@@ -12,7 +12,7 @@ var currentPage = 1
 
 function addNewItem () {
 
-    let $_URL = '/01_lab_web_programming/add_book/' +  document.getElementById('title_new_book').value + "/" +
+    let $_URL = '/Book_store/add_book/' +  document.getElementById('title_new_book').value + "/" +
                                 document.getElementById('nb_publish_house').value + "/" +
                                 document.getElementById('nb_authors').value + "/" +
                                 document.getElementById('nb_year').value + "/" +
@@ -210,11 +210,11 @@ function insertIntoTable(ph, author, category, result) {
 
         $delete_option = "DELETE";
 
-        $url1 = "/01_lab_web_programming/delete_from_table_by_id/book/" + result[i]['id_book'];
+        $url1 = "/Book_store/delete_from_table_by_id/book/" + result[i]['id_book'];
 
         $edit_option = "PUT";
 
-        $url2 = "/01_lab_web_programming/update_book/" + result[i]['id_book']
+        $url2 = "/Book_store/update_book/" + result[i]['id_book']
 
         $idBookImage = 'bookInputImage' + result[i]['id_book']
 

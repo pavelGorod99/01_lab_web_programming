@@ -12,7 +12,7 @@ function addNewItem() {
     // alert(image)
 
 
-    // let $_URL = '/01_lab_web_programming/add_book/' +  document.getElementById('bookNameInput').value + "/" + 
+    // let $_URL = '/Book_store/add_book/' +  document.getElementById('bookNameInput').value + "/" + 
     //     document.getElementById('bookPublishHouse').value + "/" +
     //     document.getElementById('bookAuthorInput').value + "/" +
     //     document.getElementById('bookYearInput').value + "/" +
@@ -22,7 +22,7 @@ function addNewItem() {
     // alert($_URL)
 
     $.ajax({
-        url: '/01_lab_web_programming/add_book',
+        url: '/Book_store/add_book',
         type: 'POST',
         data:  fd,
         success: function (result) {

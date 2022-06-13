@@ -2,7 +2,7 @@ function getItems ($table, $offset) {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url : '/01_lab_web_programming/rest/get_all',
+            url : '/Book_store/rest/get_all',
             type : 'POST',
             data : {
                 'table': $table,
@@ -22,7 +22,7 @@ function getItemsByTitle($title, $offset) {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/01_lab_web_programming/rest/get_by_title',
+            url: '/Book_store/rest/get_by_title',
             type: 'POST',
             data: {
                 'title' : $title,
@@ -42,7 +42,7 @@ function getBookCount() {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/01_lab_web_programming/rest/get_book_count',
+            url: '/Book_store/rest/get_book_count',
             type: 'POST',
             success: function(count) {
                 resolve(count);
@@ -57,7 +57,7 @@ function getBookCount() {
 function getBookCountByTitle($title) {
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/01_lab_web_programming/rest/get_book_count_by_title',
+            url: '/Book_store/rest/get_book_count_by_title',
             type: 'POST',
             data: {
                 'title': $title

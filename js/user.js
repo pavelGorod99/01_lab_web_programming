@@ -9,7 +9,7 @@ function init() {
         document.getElementById('spanUserName').innerHTML = localStorage.getItem('user_name')
 
         $.ajax({
-            url: '/01_lab_web_programming/rest/get_user',
+            url: '/Book_store/rest/get_user',
             type: 'POST',
             data:  {
                 id: localStorage.getItem('id_user')
