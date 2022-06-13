@@ -26,6 +26,14 @@ Flight::route("POST /get_book_count", function(){
     Flight::json(Flight::todoDaoService()->get_book_count());
 });
 
+Flight::route("POST /get_user", function(){
+
+    $id = Flight::request()->data->id;
+
+    Flight::json(Flight::todoDaoService()->get_user_by_id($id));
+});
+
+
 Flight::route("POST /get_book_count_by_title", function() {
 
     $title = Flight::request()->data->title;

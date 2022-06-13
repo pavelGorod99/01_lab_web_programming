@@ -69,6 +69,14 @@ class TodoDao {
         ]);
     }
 
+    public function getUserById($id) {
+        $stmt = $this->CONNECTION->prepare("SELECT * FROM user WHERE id_user=:_id");
+        $stmt->execute([
+            '_id' => $id
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function checkIfUserExists($email) {
         $stmt = $this->CONNECTION->prepare("SELECT * FROM user WHERE email=:_email");
         $stmt->execute([

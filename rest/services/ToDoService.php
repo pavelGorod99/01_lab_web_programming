@@ -49,5 +49,9 @@
         public function check_if_admin($login, $pass) {
             return $this->dao->checkIfAdmin($login, $pass);
         }
+
+        public function get_user_by_id($id) {
+            return $this->dao->getUserById($id);
+        }
     }
 ?>

@@ -29,7 +29,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     
         <script src="../js/user_home.js"></script>
-        <script src="../js/user.js"></script>
+        <!-- <script src="../js/user.js"></script> -->
 
     </head>
 
@@ -83,59 +83,37 @@
                     <div class="row">
                         <div class="col-md-3 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                                <span class="font-weight-bold" id="spanUserName">Edogaru</span>
-                                <span class="text-black-50" id="spanUserEmail">edogaru@mail.com.my</span>
+                                <img class="mt-5" width="150px" src="../img/1.jpeg">
+                                <span class="font-weight-bold mt-2" id="spanUserName">Book 11</span>
+                                <!-- <span class="text-black-50" id="spanUserEmail">edogaru@mail.com.my</span> -->
                                 <span> </span>
                             </div>
                         </div>
                         <div class="col-md-5 border-right">
                             <div class="p-3 py-5">
                                 <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-                                    <h4 class="text-right">Profile Settings</h4>
+                                    <h4 class="text-right">Book description</h4>
                                 </div>
         
-                                <div class="h4 mt-2">2Fa</div>
-        
-                                <div class="form-check border-bottom mb-3 pb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Google Authenticator
-                                    </label>
+                                <div class="form-check border-bottom mb-3 pb-3 ps-0">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </div>
         
-                                <div class="h4 mt-2">Update password</div>
+                                <div class="h4 mt-2">Order book</div>
         
                                 <div class="row mt-3">
-                                    <div class="col-md-12">
-                                        <label class="labels">Old password</label>
-                                        <div class="input-group" id="show_hide_old_password">
-                                            <input type="password" class="form-control" placeholder="old password" id="oldPass">
-                                            <span class="input-group-text">
-                                                <a href="">
-                                                    <i class="bi bi-eye-slash-fill" id="togglePassword" style="cursor: pointer"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 mt-2">
-                                        <label class="labels">New password</label>
-                                        <div class="input-group" id="show_hide_new_password">
-                                            <input type="password" class="form-control" placeholder="new password" id="newPass">
-                                            <span class="input-group-text">
-                                                <a href="">
-                                                    <i class="bi bi-eye-slash-fill" id="togglePassword" style="cursor: pointer"></i>
-                                                </a>
-                                            </span>
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <label class="labels">How many books?</label>
+                                        <div class="input-group" id="inputNrOfBooks">
+                                            <input type="number" class="form-control" id="bookCount">
                                         </div>
                                     </div>
                                 </div>
-        
-                                <div class="mt-2" style="font-size: 85%; color: red; display: none" id="divPassErr">
-                                    To update password you have to complete both fields
-                                </div>
-                                <div class="mt-5 text-center">
-                                    <button class="btn btn-primary profile-button" type="button" onclick="updateUserProfile()">Update Profile</button>
+
+                                <div class="row mt-3">
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <button class="btn btn-primary profile-button w-100" type="button" onclick="updateUserProfile()">Order book</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
