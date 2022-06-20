@@ -50,7 +50,8 @@ function login() {
                         document.getElementById('exampleInputPassword1').value = ''
 
                         localStorage.setItem('id_user', response[0]['id_user'])
-                        localStorage.setItem('user_name', response[0]['user_name'])
+                        localStorage.setItem('user_name', response[0]['user_name']);
+                        localStorage.setItem('token', response['token']);
                         window.location.replace("user_home.html");
 
                     } else {

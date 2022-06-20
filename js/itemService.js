@@ -45,6 +45,9 @@ function editItem($idBook) {
     $.ajax({
         url: "/Book_store/rest/update_book",
         type: "POST",
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+          },
         data:  fd,
         success: function (result) {
             

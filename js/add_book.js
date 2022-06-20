@@ -22,7 +22,7 @@ function addNewItem() {
     // alert($_URL)
 
     $.ajax({
-        url: '/Book_store/add_book',
+        url: '/Book_store/rest/add_book',
         type: 'POST',
         data:  fd,
         success: function (result) {
