@@ -21,7 +21,8 @@ Flight::route('/*', function(){
       '/login',
       '/docs.json',
       '/registration',
-      '/get_all'
+      '/get_all',
+      '/books'
     );
 
     $path = Flight::request()->url;
