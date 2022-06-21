@@ -25,6 +25,36 @@ class TodoDao {
         return $_STMT->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getBooksByFilter($parameters, $offset) {
+
+        $sql = "SELECT * FROM book WHERE ";
+
+        if (!empty($parameters)) {
+
+            $auxArr = array('author', 'publishing_house', 'year', 'category', 'price');
+
+            for ($i = 0; $i < count($parameters); $i++) {
+
+                if ($auxArr[$parameters[$i][0]] == 'price') {
+                    $sql .= " price>=0 AND " . $auxArr[$parameters[$i][0]] . "<=" . $parameters[$i][1];
+                } else {
+                    $sql .= $auxArr[$parameters[$i][0]] . "=" . $parameters[$i][1];
+                }
+
+                if ($i + 1 != count($parameters)) {
+                    $sql .= " AND ";
+                }
+            }
+
+            $sql .= " LIMIT 6 OFFSET " . $offset . ";";
+
+            $stmt = $this->CONNECTION->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return $sql;
+    }
+
     public function get_all($table, $offset) {
         $sql = "";
         if ($offset == -1) {
@@ -37,8 +67,8 @@ class TodoDao {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getBookCount() {
-        $stmt = $this->CONNECTION->prepare("SELECT COUNT(id_book) FROM book");
+    public function getTableRowCount($table) {
+        $stmt = $this->CONNECTION->prepare("SELECT COUNT(*) AS COUNT FROM " . $table);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -138,7 +168,15 @@ class TodoDao {
     }
 
     public function deleteFromTableById ($table, $id) {
-        $stmt = $this->CONNECTION->prepare("DELETE FROM " . $table . " WHERE id_book=:id");
+
+        $stmt = null;
+
+        if ($table == 'book') {
+            $stmt = $this->CONNECTION->prepare("DELETE FROM " . $table . " WHERE id_book=:id");
+        } else {
+            $stmt = $this->CONNECTION->prepare("DELETE FROM " . $table . " WHERE id_user=:id");
+        }
+
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }

@@ -1,6 +1,13 @@
 function login() {
 
+    var token = localStorage.getItem("token");
+
+    if (token) {
+        window.location.replace("user_home.html");
+    }
+
     $('#login_form').validate({
+
         errorPlacement: function(error, element) {
             if (element.attr("name") == "email")
                 error.appendTo($('#messBox1'))
@@ -31,9 +38,9 @@ function login() {
             $form = document.getElementById("login_form")
             var fd = new FormData($form);
 
-            $rememberMe = document.getElementById("exampleCheck1").checked;
+            // $rememberMe = document.getElementById("exampleCheck1").checked;
 
-            fd.append('rememberMe', $rememberMe)
+            // fd.append('rememberMe', $rememberMe)
 
             $.ajax({
                 url: "/Book_store/rest/login",
@@ -69,5 +76,5 @@ function login() {
 }
 
 $(document).ready(function() {
-    login()
+    // login()
 });

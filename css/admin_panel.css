@@ -62,3 +62,7 @@
 .d-sm-block-custom {
     display: table-cell!important;
 }
+
+.log-out { 
+    cursor: pointer;
+}

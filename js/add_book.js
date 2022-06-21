@@ -24,6 +24,9 @@ function addNewItem() {
     $.ajax({
         url: '/Book_store/rest/add_book',
         type: 'POST',
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         data:  fd,
         success: function (result) {
 
@@ -42,6 +45,7 @@ function addNewItem() {
 
         }, error: function (err) {
             console.log(err)
+            UserService.logout();
         },
         processData: false,
         contentType: false

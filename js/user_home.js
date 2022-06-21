@@ -1,4 +1,10 @@
 function init() {
+
+    var token = localStorage.getItem("token");
+    
+    if (token == null) {
+        window.location.href = "login.html";
+    }
     
     if (localStorage.getItem('id_user') != undefined) {
 

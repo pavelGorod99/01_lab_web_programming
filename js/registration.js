@@ -1,5 +1,11 @@
 function registration() {
 
+    var token = localStorage.getItem("token");
+    
+    if (token) {
+        window.location.replace("user_home.html");
+    }
+
     $('#registration_form').validate({
         errorPlacement: function(error, element) {
 

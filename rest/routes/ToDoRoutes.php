@@ -8,6 +8,7 @@ use Firebase\JWT\Key;
  *     path="/get_all",
  *     description="Get data from any table by offset",
  *     tags={"todo"},
+ *      security={{"ApiKeyAuth": {}}},
  *     @OA\RequestBody(description="Basic user info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
@@ -34,10 +35,51 @@ Flight::route("POST /get_all", function () {
     Flight::json(Flight::todoDaoService()->get_all($table, $offset));
 });
 
+Flight::route("POST /get_books_by_filter", function () {
+
+    $parameters = array();
+
+    $offset = $author = Flight::request()->data->offset;
+    
+    $author = Flight::request()->data->author;
+    $i = 0;
+    if ($author) {
+        $parameters[$i] = array(0, $author);
+        $i++;
+    }
+
+    $publishingHouse = Flight::request()->data->publishing_house;
+    if ($publishingHouse) {
+        $parameters[$i] = array(1, $publishingHouse);
+        $i++;
+    }
+
+    $year = Flight::request()->data->year;
+    if ($year) {
+        $parameters[$i] = array(2, $year);
+        $i++;
+    }
+
+    $category = Flight::request()->data->category;
+    if ($category) {
+        $parameters[$i] = array(3, $category);
+        $i++;
+    }
+
+    $priceRange = Flight::request()->data->price;
+    if ($priceRange) {
+        $parameters[$i] = array(4, $priceRange);
+    }
+
+    // Flight::json($parameters);
+    Flight::json(Flight::todoDaoService()->get_books_by_filter($parameters, $offset));
+});
+
 /**
- * @OA\POST(path="/books", tags={"todo"}, security={{"ApiKeyAuth": {}}},
- *         summary="Return all books from the API. ",
- *         @OA\Response( response=200, description="List of books")
+ * @OA\POST(path="/books", tags={"todo"}, 
+ *          security={{"ApiKeyAuth": {}}},
+ *          summary="Return all books from the API. ",
+ *          @OA\Response( response=200, description="List of books")
  * )
  */
 
@@ -54,6 +96,7 @@ Flight::route("POST /books", function () {
  *     path="/get_by_title",
  *     description="Get a book by title",
  *     tags={"todo"},
+ *      security={{"ApiKeyAuth": {}}},
  *     @OA\RequestBody(description="Basic user info", required=true,
  *       @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -81,14 +124,22 @@ Flight::route("POST /get_by_title", function() {
 });
 
 /**
- * @OA\POST(path="/get_book_count", tags={"todo"}, security={{"ApiKeyAuth": {}}},
- *         summary="Return the count of books from the API. ",
- *         @OA\Response( response=200, description="Count of books")
+ * @OA\POST(path="/get_table_row_count", tags={"todo"}, 
+ *          security={{"ApiKeyAuth": {}}},
+ *         summary="Return the count of table rows from the API. ",
+ *      @OA\RequestBody(description="Table row count", required=true,
+ *       @OA\MediaType(mediaType="application/json",
+ *    			@OA\Schema(
+ *    				@OA\Property(property="table", type="string", example="book",	description="Table row count")
+ *        )
+ *     )),
+ *         @OA\Response( response=200, description="Count of table rows")
  * )
  */
 
-Flight::route("POST /get_book_count", function(){
-    Flight::json(Flight::todoDaoService()->get_book_count());
+Flight::route("POST /get_table_row_count", function(){
+    $table = Flight::request()->data->table;
+    Flight::json(Flight::todoDaoService()->get_table_row_count($table));
 });
 
 /**
@@ -96,6 +147,7 @@ Flight::route("POST /get_book_count", function(){
  *     path="/get_user",
  *     description="Get a user by id",
  *     tags={"todo"},
+ *      security={{"ApiKeyAuth": {}}},
  *     @OA\RequestBody(description="Basic user info", required=true,
  *       @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -125,6 +177,7 @@ Flight::route("POST /get_user", function(){
  *     path="/get_book_count_by_title",
  *     description="Get book count by title",
  *     tags={"todo"},
+ *      security={{"ApiKeyAuth": {}}},
  *     @OA\RequestBody(description="Basic user info", required=true,
  *       @OA\MediaType(mediaType="application/json",
  *    			@OA\Schema(
@@ -154,6 +207,7 @@ Flight::route("POST /get_book_count_by_title", function() {
  *     path="/add_book",
  *     description="Insert a book into database",
  *     tags={"todo"},
+ *     security={{"ApiKeyAuth": {}}},
  *     @OA\RequestBody(description="Basic user info", required=true,
  *         @OA\MediaType(mediaType="multipart/form-data",
  *    			@OA\Schema(
@@ -266,7 +320,7 @@ Flight::route("POST /upload_file", function() {
 });
 
 Flight::route("DELETE /delete_from_table_by_id/@table/@id", function($table, $id) {
-    Flight::json(Flight::todoDao()->deleteFromTableById($table, $id));
+    Flight::json(Flight::todoDaoService()->delete_book($table, $id));
 });
 
 Flight::route("POST /registration", function() {
@@ -290,6 +344,7 @@ Flight::route("POST /registration", function() {
 *     path="/login",
 *     description="Login to the system",
 *     tags={"todo"},
+*     security={{"ApiKeyAuth": {}}},
 *     @OA\RequestBody(description="Basic user info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
@@ -314,7 +369,16 @@ Flight::route("POST /login", function() {
     $pass = Flight::request()->data->pass;
 
     if (count(Flight::todoDaoService()->check_if_admin($email, $pass)) == 1) {
-        Flight::json("admin");
+
+        $admin = Flight::todoDaoService()->check_if_admin($email, $pass);
+
+        if ($admin[0]['pass'] == $pass) {
+
+            $jwt = JWT::encode($admin, Config::JWT_SECRET(), 'HS256');
+            $admin['admin'] = 1;
+            $admin['token'] = $jwt;
+            Flight::json($admin);
+        }
     } else {
 
         $user = Flight::todoDaoService()->check_if_user_exists($email);
@@ -322,9 +386,10 @@ Flight::route("POST /login", function() {
         if (count($user) == 1) {
 
             if ($user[0]['password'] == $pass) {
+
                 unset($user['password']);
 
-                $rememberMe = Flight::request()->data->remember_me;
+                // $rememberMe = Flight::request()->data->remember_me;
 
                 $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
                 $user['token'] = $jwt;
@@ -340,7 +405,7 @@ Flight::route("POST /login", function() {
     }
 });
 
-Flight::route("POST /update_book", function() {
+Flight::route("POST /update_book", function() { 
     // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $result = 0;
@@ -349,7 +414,7 @@ Flight::route("POST /update_book", function() {
             
             $filename = $_FILES['image']['name'];
 
-            $location = "img/".$filename;
+            $location = SITE_ROOT . "/img/".$filename;
             $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
             $imageFileType = strtolower($imageFileType);
 

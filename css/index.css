@@ -81,3 +81,7 @@ footer {
     /* background-color:#dddddd; */
     /* text-align: center; */
 }
+
+.log-out {
+    cursor: pointer;
+}

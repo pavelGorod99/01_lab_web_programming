@@ -10,7 +10,7 @@
 
         <script href="../js/jquery-3.6.0.min.js"></script>
         <script href="../js/bootstrap.bundle.min.js"></script>
-        <!-- <script type="text/javascript" src="js/get_data_table.js"></script> -->
+        <script type="text/javascript" src="../js/get_data_table.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <!-- <script src="../js/itemService.js"></script> -->
 
@@ -22,6 +22,10 @@
         <link href="../css/style_bs.css" rel="stylesheet">
 
         <script src="../js/user_home.js"></script>
+
+        <script src="../js/user-service.js"></script>
+
+        <script src="../js/books.js"></script>
     
     </head>
 
@@ -54,7 +58,7 @@
                                 <a class="nav-link" href="./user.html" style="color: white" id="welcome_user">User</a>
                               </li>
                               <li class="nav-item me-2">
-                                <a class="nav-link" href="./login.html" style="color: white">Log out</a>
+                                <a class="nav-link" (click)="UserService.logout()" style="color: white">Log out</a>
                               </li>
                             </ul>
                             <form class="d-flex">
@@ -74,35 +78,26 @@
                     <div>
                         Filter
                     </div>
-                    <select class="form-select filter_elem" aria-label="Default select example">
-                        <option selected>Filter by author</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select filter_elem" aria-label="Default select example" id="authors" name="author">
+                        <option selected disabled>Filter by author</option>
                     </select>
-                    <select class="form-select filter_elem" aria-label="Default select example">
-                        <option selected>Filter by publishing house</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select filter_elem" aria-label="Default select example" id="publishingHouse" name="publishing_house">
+                        <option selected disabled>Filter by publishing house</option>
                     </select>
-                    <select class="form-select filter_elem" aria-label="Default select example">
-                        <option selected>Filter by year</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select filter_elem" aria-label="Default select example" id="year" name="year">
+                        <option selected disabled>Filter by year</option>
                     </select>
-                    <select class="form-select filter_elem" aria-label="Default select example">
-                        <option selected>Filter by category</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select filter_elem" aria-label="Default select example" id="category" name="category">
+                        <option selected disabled>Filter by category</option>
                     </select>
     
-                    <label for="customRange3" class="form-label filter_elem">Filter by price</label>
-                    <input type="range" class="form-range" min="0" max="200" step="1" id="customRange3">
-                    <button type="button" class="btn btn-primary filter_elem" >Filter</button>
-                    <button type="button" class="btn btn-success filter_elem" >Refresh</button>
+                    <div class="form-label">
+                        <label for="customRange3" class="filter_elem">Filter by price: </label>
+                        <div id="price" style="display: inline-block">100</div>
+                    </div>
+                    <input type="range" class="form-range" min="0" max="200" step="1" id="priceRange" name="price" value="100">
+                    <button type="button" class="btn btn-primary filter_elem" onclick="filterBooks()">Filter</button>
+                    <button type="button" class="btn btn-success filter_elem" onclick="refreshFilter()">Refresh</button>
                 </form>
             </div>
             <div class="col-12 col-sm-12 col-md-7 col-lg-8">
@@ -114,9 +109,9 @@
                             Books list
                           </h2>
                         </div>
-                        <div class="row mb-5">
+                        <div class="row mb-5" id="book-list">
 
-                          <div class="col-sm-6 col-md-4 ">
+                          <!-- <div class="col-sm-6 col-md-4 ">
                             <div class="box " style="background-color: #f5f6f9!important">
                                 
                                 <img src="../img/1.jpg" class="card-img-top img-custom" alt="..." style="width: auto!important;">
@@ -353,12 +348,12 @@
                                 </div>
 
                             </div>
-                          </div>
+                          </div> -->
 
                         </div>
 
                         <nav aria-label="Page navigation example" class="nav_pagination w-100 d-flex justify-content-center">
-                            <ul class="pagination">
+                            <ul class="pagination" id="pagination">
                                 <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>

@@ -1,4 +1,12 @@
 function init() {
+
+    var token = localStorage.getItem("token");
+
+    console.log("TOKEN: " + token);
+    
+    if (token == null) {
+        window.location.replace("login.html");
+    }
     
     if (localStorage.getItem('id_user') != undefined) {
 
@@ -11,6 +19,9 @@ function init() {
         $.ajax({
             url: '/Book_store/rest/get_user',
             type: 'POST',
+            beforeSend: function(xhr){
+                xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+            },
             data:  {
                 id: localStorage.getItem('id_user')
             },

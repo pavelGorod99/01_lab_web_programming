@@ -14,6 +14,10 @@
             return $this->dao->get_all($table, $offset);
         }
 
+        public function get_books_by_filter($parameters, $offset) {
+            return $this->dao->getBooksByFilter($parameters, $offset);
+        }
+
         public function get_by_id($table, $id) {
             return $this->dao->get_by_id($table, $id);
         }
@@ -22,8 +26,8 @@
             return $this->dao->getBooksByTitle($title, $offset);
         }
 
-        public function get_book_count() {
-            return $this->dao->getBookCount();
+        public function get_table_row_count($table) {
+            return $this->dao->getTableRowCount($table);
         }
 
         public function get_book_count_by_title($title) {
@@ -52,6 +56,14 @@
 
         public function get_user_by_id($id) {
             return $this->dao->getUserById($id);
+        }
+
+        public function delete_book($table, $id) {
+            return $this->dao->deleteFromTableById($table, $id);
+        }
+
+        public function get_users_count() {
+            return $this->dao->getTableRowCount('user');
         }
     }
 ?>

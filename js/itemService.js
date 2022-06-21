@@ -10,26 +10,6 @@ var currentPage = 1
 
 var bookEditImagePath = ''
 
-// function addNewItem () {
-
-//     let $_URL = '/Book_store/add_book/' +  document.getElementById('title_new_book').value + "/" +
-//                                 document.getElementById('nb_publish_house').value + "/" +
-//                                 document.getElementById('nb_authors').value + "/" +
-//                                 document.getElementById('nb_year').value + "/" +
-//                                 document.getElementById('nb_page_nr_book').value + "/" +
-//                                 document.getElementById('nb_price').value
-
-//     $.ajax({
-//         url: $_URL,
-//         type: 'POST',
-//         success: function () {
-//             insertDataIntoTable(0)
-//         }, error: function (err) {
-//             console.log('error: ' + err)
-//         }
-//     })
-// }
-
 function editItem($idBook) {
 
     $inputImage = document.getElementById("bookInputImage" + $idBook)
@@ -47,7 +27,7 @@ function editItem($idBook) {
         type: "POST",
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
-          },
+        },
         data:  fd,
         success: function (result) {
             
@@ -59,6 +39,7 @@ function editItem($idBook) {
         },
         error: function (err) {
             console.log(err);
+            // UserService.logout();    
         },
         processData: false,
         contentType: false
@@ -70,6 +51,9 @@ function deleteBook ($bookId) {
     $.ajax({
         url: "/Book_store/rest/delete_from_table_by_id/book/" + $bookId,
         type: "DELETE",
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+        },
         success: function (result) {
             console.log(result);
             console.log("The record was successfully deleted");
@@ -79,6 +63,7 @@ function deleteBook ($bookId) {
         },
         error: function (err) {
             console.log(err);
+            // UserService.logout();
         }
     });
 }
@@ -98,7 +83,7 @@ function pagination($page) {
 
 function insertDataIntoTable($offset) {
 
-    getBookCount().then(function(count) {
+    getTableRowCount('book').then(function(count) {
 
         getItems('publishing_house', -1).then(function(ph) {
 
@@ -107,8 +92,8 @@ function insertDataIntoTable($offset) {
                 getItems('category', -1).then(function(category) {
 
                     getItems('book', $offset).then(function(result) {
-    
-                        bookCount = count[0]['COUNT(id_book)'];
+
+                        bookCount = count[0]['COUNT'];
         
                         insertIntoTable(ph, author, category, result);
         
@@ -378,6 +363,8 @@ function seacrhForABook($offset) {
 }
 
 $(document).ready(function() {
+
+    console.log("TOKEN: " + localStorage.getItem('token'));
 
     $("#searchBookByTitle").on("input", function(e) {
         seacrhForABook(0)
