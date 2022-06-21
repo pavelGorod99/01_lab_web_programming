@@ -1,6 +1,11 @@
 <?php
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: PUT, GET, POST');
+header('Access-Control-Allow-Headers: Cache-Control, Pragma, Origin, X-Requested-Width, Content-Type, Accept, Authorization');
+
 // CRUD operations for todos entity
 
 /**
