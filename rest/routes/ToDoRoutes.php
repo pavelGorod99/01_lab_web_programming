@@ -80,6 +80,10 @@ Flight::route("POST /get_books_by_filter", function () {
     Flight::json(Flight::todoDaoService()->get_books_by_filter($parameters, $offset));
 });
 
+Flight::route("GET /test", function () {
+    Flight::json(Flight::todoDaoService()->get_all("book", -1));
+});
+
 /**
  * @OA\POST(path="/books", tags={"todo"}, 
  *          summary="Return all books from the API. ",
