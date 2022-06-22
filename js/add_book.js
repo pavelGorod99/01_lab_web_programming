@@ -22,7 +22,8 @@ function addNewItem() {
     // alert($_URL)
 
     $.ajax({
-        url: '/Book_store/rest/add_book',
+        // url: '/Book_store/rest/add_book',
+        url: '/rest/add_book',
         type: 'POST',
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

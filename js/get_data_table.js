@@ -2,7 +2,8 @@ function getItems ($table, $offset) {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url : '/Book_store/rest/get_all',
+            // url : '/Book_store/rest/get_all',
+            url : '/rest/get_all',
             type : 'POST',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -26,7 +27,8 @@ function getItemsByTitle($title, $offset) {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/Book_store/rest/get_by_title',
+            // url: '/Book_store/rest/get_by_title',
+            url: '/rest/get_by_title',
             type: 'POST',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -50,7 +52,8 @@ function getTableRowCount($table) {
 
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/Book_store/rest/get_table_row_count',
+            // url: '/Book_store/rest/get_table_row_count',
+            url: '/rest/get_table_row_count',
             type: 'POST',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -72,7 +75,8 @@ function getTableRowCount($table) {
 function getBookCountByTitle($title) {
     return new Promise(function(resolve, reject) {
         $.ajax({
-            url: '/Book_store/rest/get_book_count_by_title',
+            // url: '/Book_store/rest/get_book_count_by_title',
+            url: '/rest/get_book_count_by_title',
             type: 'POST',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

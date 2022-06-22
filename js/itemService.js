@@ -23,7 +23,8 @@ function editItem($idBook) {
     }
 
     $.ajax({
-        url: "/Book_store/rest/update_book",
+        // url: "/Book_store/rest/update_book",
+        url: "/rest/update_book",
         type: "POST",
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
@@ -49,7 +50,8 @@ function editItem($idBook) {
 function deleteBook ($bookId) {
 
     $.ajax({
-        url: "/Book_store/rest/delete_from_table_by_id/book/" + $bookId,
+        // url: "/Book_store/rest/delete_from_table_by_id/book/" + $bookId,
+        url: "/rest/delete_from_table_by_id/book/" + $bookId,
         type: "DELETE",
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

@@ -17,7 +17,8 @@ function init() {
         document.getElementById('spanUserName').innerHTML = localStorage.getItem('user_name')
 
         $.ajax({
-            url: '/Book_store/rest/get_user',
+            // url: '/Book_store/rest/get_user',
+            url: '/rest/get_user',
             type: 'POST',
             beforeSend: function(xhr){
                 xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

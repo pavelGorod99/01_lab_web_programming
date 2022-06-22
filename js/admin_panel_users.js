@@ -3,7 +3,8 @@ var userCount = 0
 function deleteUser($id) {
 
     $.ajax({
-        url: "/Book_store/rest/delete_from_table_by_id/user/" + $id,
+        // url: "/Book_store/rest/delete_from_table_by_id/user/" + $id,
+        url: "/rest/delete_from_table_by_id/user/" + $id,
         type: "DELETE",
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

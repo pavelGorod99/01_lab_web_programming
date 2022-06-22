@@ -16,7 +16,8 @@ function filterBooks() {
     fd.append('offset', offset)
 
     $.ajax({
-        url: "/Book_store/rest/get_books_by_filter",
+        // url: "/Book_store/rest/get_books_by_filter",
+        url: "/rest/get_books_by_filter",
         type: "POST",
         beforeSend: function(xhr){
             xhr.setRequestHeader('Authorization', localStorage.getItem('token'));

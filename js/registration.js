@@ -50,7 +50,8 @@ function registration() {
             var fd = new FormData($form);
 
             $.ajax({
-                url: "/Book_store/rest/registration",
+                // url: "/Book_store/rest/registration",
+                url: "/rest/registration",
                 type: 'POST',
                 data: fd,
                 success: function (response) {
