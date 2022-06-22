@@ -43,7 +43,7 @@ function login() {
             // fd.append('rememberMe', $rememberMe)
 
             $.ajax({
-                url: "/rest/login",
+                url: "/Book_store/rest/login",
                 type: 'POST',
                 data: fd,
                 success: function (response) {

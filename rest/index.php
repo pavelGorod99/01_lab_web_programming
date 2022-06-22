@@ -22,7 +22,6 @@ Flight::route('/*', function(){
       '/docs.json',
       '/registration',
       '/get_all',
-      '/books',
       '/test'
     );
 

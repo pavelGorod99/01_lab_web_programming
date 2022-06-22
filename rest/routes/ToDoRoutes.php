@@ -86,6 +86,7 @@ Flight::route("GET /test", function () {
 
 /**
  * @OA\POST(path="/books", tags={"todo"}, 
+ *          security={{"ApiKeyAuth": {}}},
  *          summary="Return all books from the API. ",
  *          @OA\Response( response=200, description="List of books")
  * )

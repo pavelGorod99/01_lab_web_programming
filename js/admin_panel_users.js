@@ -75,6 +75,5 @@ function getUsers() {
 }
 
 $(document).ready(function() {
-    console.log("WORK");
     getUsers()
 });
