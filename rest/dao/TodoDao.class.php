@@ -10,10 +10,10 @@ class TodoDao {
 
     public function __construct() {
 
-        $_servername = "localhost";
-        $_USERNAME = "root";
-        $_PASSWORD = "";
-        $_SCHEMA = "book_store";
+        $_servername = "ibu-sql-2022.adnan.dev";
+        $_USERNAME = "user_pavel";
+        $_PASSWORD = "VL973N";
+        $_SCHEMA = "db_pavel";
         $this->CONNECTION = new PDO("mysql:host=$_servername;dbname=$_SCHEMA", $_USERNAME, $_PASSWORD);
         $this->CONNECTION->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
